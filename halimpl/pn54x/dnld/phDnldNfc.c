@@ -1108,11 +1108,11 @@ NFCSTATUS phDnldNfc_LoadFW(const char* pathName, uint8_t **pImgInfo, uint16_t* p
     dlerror();    /* Clear any existing error */
 
     /* load the address of download image pointer and image size */
-   pImageInfo     =  (void*)dlsym(pFwLibHandle,"gphDnldNfc_DlSeq");
+   pImageInfo     =  (void*)dlsym(pFwLibHandle,"gphDnldNfc_DlSequence");
 
    if(dlerror()|| (NULL == pImageInfo))
    {
-       NXPLOG_FWDNLD_E("Problem loading symbol : gphDnldNfc_DlSeq");
+       NXPLOG_FWDNLD_E("Problem loading symbol : gphDnldNfc_DlSequence");
        return NFCSTATUS_FAILED;
    }
    (*pImgInfo) = (*(uint8_t**)pImageInfo);
